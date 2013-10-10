@@ -1,0 +1,30 @@
+---
+component: navbar
+---
+<!-- Navbar component
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand {{#is page.dest 'out/index.html'}}active{{/is}}" href="{{site.url}}">{{site.title}}</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        {{#each tags}}{{#is tag 'page'}}
+            {{#each pages}}
+              <li typeof="sioc:Page" about="document.url" class="{{#is ../../../page.dest dest}}active{{/is}}" >
+                <a href="{{relative ../../../page.dest dest}}" property="dc:title">{{data.title}}</a>
+              </li>
+            {{/each}}
+        {{/is}}{{/each}}
+      </ul>
+    </div><!--/.navbar-collapse -->
+  </div>
+</div>
+
+
