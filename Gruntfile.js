@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 		        	'<%= assemble.options.data %>',
 		        	'<%= assemble.options.partials %>'
 		        ],
-		        tasks: ['assemble:pages'],
+		        tasks: ['clean:out','assemble:pages'],
 		        options: { livereload: true }
         	}
         },
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
             },
             pages: {
             	options: {
-            		layout: 'default.hbs'
+            		layout: 'page.hbs'
             	},
             	src: ['<%= build.src %>/*.hbs'],
             	dest: '<%= build.out %>/'
@@ -58,12 +58,23 @@ module.exports = function (grunt) {
         clean: {
 	      options: { force: false },
 	      out: ['<%= build.out %>/*']
+	    },
+	    copy: {
+	      src: {
+	      	expand: true,
+	      	cwd: '<%= build.src %>/',
+	      	src: ['**','!**/*.hbs','!_*/**'],
+	      	dest: '<%= build.out %>/'
+	      }
 	    }
     });
 
     grunt.loadNpmTasks('assemble');
 
-    grunt.registerTask('server', ['connect:server','watch']);
-    grunt.registerTask('run', ['clean:out','assemble:pages','server']);
+    grunt.registerTask('server', ['connect','watch']);
+    grunt.registerTask('run', ['clean','assemble','server']);
+    grunt.registerTask('build', ['clean','assemble','copy']);
+
+    grunt.registerTask('default', ['server']);
 
 };
