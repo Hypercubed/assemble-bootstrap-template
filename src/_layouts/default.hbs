@@ -10,13 +10,15 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
 
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<!-- build:css styles/main.css -->
+
+		<!-- build:css(src) styles/vendor.css -->
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+		<!-- endbuild -->
+		<!-- build:css(src) styles/main.css -->
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
-		<!-- build:js scripts/vendor/modernizr.js -->
+		<!-- build:js(src) scripts/vendor/modernizr.js -->
 		<script src="bower_components/modernizr/modernizr.js"></script>
 		<!-- endbuild -->
 	</head>
@@ -33,10 +35,8 @@
 
 		{{> footer }}
 
-		<!-- build:js scripts/vendor.js -->
-		<!-- bower:js -->
+		<!-- build:js(src) scripts/vendor.js -->
 		<script src="bower_components/jquery/jquery.js"></script>
-		<!-- endbower -->
 		<!-- endbuild -->
 
 		<!-- Google Analytics -->
@@ -49,7 +49,7 @@
 			ga('create','{{site.ga}}');ga('send','pageview');
 		</script>
 
-        <!-- build:js scripts/main.js -->
+        <!-- build:js(src) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 

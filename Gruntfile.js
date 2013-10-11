@@ -63,17 +63,63 @@ module.exports = function (grunt) {
 	      src: {
 	      	expand: true,
 	      	cwd: '<%= build.src %>/',
-	      	src: ['**','!**/*.hbs','!_*/**'],
+	      	src: ['**','!**/*.hbs','!_*/**','!bower_components/**'],
 	      	dest: '<%= build.out %>/'
 	      }
-	    }
+	    },
+	    useminPrepare: {
+		  options: {
+			dest: '<%= build.out %>'
+		  },
+		  html: '<%= build.out %>/index.html'
+		},
+		usemin: {
+			options: {
+				dirs: ['<%= build.out %>']
+			},
+            html: ['<%= build.out %>/{,*/}*.html'],
+            css: ['<%= build.out %>/styles/{,*/}*.css']
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    /*removeCommentsFromCDATA: true,
+                    // https://github.com/yeoman/grunt-usemin/issues/44
+                    //collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    removeAttributeQuotes: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true,
+                    removeEmptyAttributes: true,
+                    removeOptionalTags: true*/
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= build.out %>',
+                    src: '*.html',
+                    dest: '<%= build.out %>'
+                }]
+            }
+        }
     });
 
     grunt.loadNpmTasks('assemble');
 
     grunt.registerTask('server', ['connect','watch']);
     grunt.registerTask('run', ['clean','assemble','server']);
-    grunt.registerTask('build', ['clean','assemble','copy']);
+    //grunt.registerTask('build', ['clean','assemble','copy']);
+
+    grunt.registerTask('build', [
+    	'clean',
+    	'assemble',
+    	'copy',
+    	'useminPrepare',
+    	'concat',
+    	'cssmin',
+    	'uglify',
+    	'usemin',
+    	'htmlmin'
+    ]);
 
     grunt.registerTask('default', ['server']);
 
