@@ -1,6 +1,8 @@
 assemble-bootstrap-template
 ===========================
 
+My template for building a static [bootstrap 3.0](http://getbootstrap.com/) site using [grunt](http://gruntjs.com/) and various grunt tasks, including [assemble](http://assemble.io/).
+
 # Installation
 
 ```
