@@ -1,18 +1,41 @@
 ---
+layout: default.hbs
 title: <%= site.title %>
 ---
-<div class="row">
-	<div class="col-md-4">
-		<h2>You now have</h2>
-		<ul>
-			<li><a href="http://gruntjs.com/">Grunt</a></li>
-			<li><a href="http://assemble.io/">Assemble</a></li>
-			<li><a href="http://getbootstrap.com/">Bootstrap 3.0</a></li>
-		</ul>
+
+<div class="jumbotron">
+  <div class="container">
+
+{{#markdown}}
+# {{site.title}}
+## A template for building a static site using [bower](http://bower.io/), [grunt](http://gruntjs.com/), and various grunt tasks, including [assemble](http://assemble.io/).
+{{/markdown}}
+
+    <p><a href="https://github.com/Hypercubed/assemble-bootstrap-template" class="btn btn-primary btn-lg">View on github</a></p>
   </div>
-  <div class="col-md-4">
-		<h2>Built using</h2>
-		<br /><iframe src="http://lab.lepture.com/github-cards/card.html?user=Hypercubed&repo=assemble-bootstrap-template" frameborder="0" scrolling="0" width="400" height="200" allowtransparency></iframe>
-	</div>
 </div>
+
+<div class="container">
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-5">
+        <br /><iframe src="http://lab.lepture.com/github-cards/card.html?user=Hypercubed&repo=assemble-bootstrap-template" frameborder="0" scrolling="0" width="400" height="300" allowtransparency></iframe>
+      </div>
+      <div class="col-md-4">
+
+{{#markdown}}
+## Features
+- Build tasks managed using <a href="http://gruntjs.com/">Grunt</a>
+- Preview server with LiveReload using [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect).
+- HTML generated from [handelbars](http://handlebarsjs.com/) templates using [Assemble](http://assemble.io/).
+- JS and CSS concatenation and minifications using [grunt-usemin](https://github.com/yeoman/grunt-usemin)
+- Front-end components managed using [Bower](http://bower.io/).
+- Base template using <a href="http://getbootstrap.com/">Bootstrap 3.0</a>
+{{/markdown}}
+
+    </div>
+  </div>
+</div>
+
+
 

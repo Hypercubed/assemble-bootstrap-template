@@ -27,7 +27,8 @@
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
     "assemble": "~0.4.4",
-    "grunt-bless": "~0.1.1"
+    "grunt-bless": "~0.1.1",
+    "assemble-less": "~0.5.3"
   },
   "engines": {
     "node": ">=0.8.0"

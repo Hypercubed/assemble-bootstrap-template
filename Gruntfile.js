@@ -63,7 +63,13 @@ module.exports = function (grunt) {
       src: {
         expand: true,
         cwd: '<%= build.src %>/',
-        src: ['**','!**/*.hbs','!_*/**','!bower_components/**'],
+        src: [
+          '**',
+          '!**/*.hbs',
+          '!_*/**',
+          '!bower_components/**',
+          '.htaccess'
+        ],
         dest: '<%= build.out %>/'
       }
     },
@@ -107,10 +113,28 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         'src/scripts/*.js'
       ]
+    },
+    rev: {
+      files: {
+        src: [
+          '<%= build.out %>/scripts/{,*/}*.js',
+          '<%= build.out %>/styles/{,*/}*.css',
+          '<%= build.out %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+          '<%= build.out %>/fonts/{,*/}*.*'
+        ]
+      }
+    },
+    less: {
+      styles: {
+        files: {
+          '<%= build.out %>/styles/**/*.*': ['<%= build.src %>/styles/**/*.less']
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('assemble-less');
 
   grunt.registerTask('server', ['connect','watch']);
   grunt.registerTask('run', ['clean','assemble','server']);
@@ -124,6 +148,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
+    'rev',
     'usemin',
     'htmlmin'
   ]);
