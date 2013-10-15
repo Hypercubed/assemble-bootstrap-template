@@ -6,7 +6,6 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json' ),
     build: {
       src: 'src',
       out: 'out'
@@ -43,9 +42,7 @@ module.exports = function (grunt) {
         flatten: true,
         partials: '<%= build.src %>/_partials/*.hbs',
         layoutdir: '<%= build.src %>/_layouts',
-        pkg: '<%= pkg %>',
-        data: '<%= build.src %>/_data/*.{json,yml}',
-        date: new Date()
+        data: ['<%= build.src %>/_data/*.{json,yml}', 'package.json']
       },
       pages: {
         options: {
@@ -67,7 +64,6 @@ module.exports = function (grunt) {
           '**',
           '!**/*.hbs',
           '!_*/**',
-          '!bower_components/**',
           '.htaccess'
         ],
         dest: '<%= build.out %>/'
@@ -107,6 +103,26 @@ module.exports = function (grunt) {
         }]
       }
     },
+    //imagemin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%%= build.src %>/images',
+    //      src: '**/*.{png,jpg,jpeg,gif,webp}',
+    //      dest: '<%%= build.out %>/images'
+    //    }]
+    //  }
+    //},
+    //svgmin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%%= build.src %>/images',
+    //      src: '{,*/}*.svg',
+    //      dest: '<%%= build.out %>/images'
+    //    }]
+    //  }
+    //},
     jshint: {
       options: {jshintrc: '.jshintrc'},
       files: [
@@ -123,18 +139,30 @@ module.exports = function (grunt) {
           '<%= build.out %>/fonts/{,*/}*.*'
         ]
       }
-    },
-    less: {
-      styles: {
-        files: {
-          '<%= build.out %>/styles/**/*.*': ['<%= build.src %>/styles/**/*.less']
-        }
-      }
-    }
+    }//,
+    //less: {
+    //  styles: {
+    //    files: {
+    //      '<%= build.out %>/styles/**/*.*': ['<%= build.src %>/styles/**/*.less']
+    //    }
+    //  }
+    //},
+    //'bower-install': {
+    //  target: {
+    //    html: 'out/index.html' // point to your HTML file.
+    //  }
+    //},
+    //'gh-pages': {
+    //  options: {
+    //    base: 'out',
+    //    branch: 'gh-pages'
+    //  },
+    //  src: ['**/*']
+    //}
   });
 
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('assemble-less');
+  //grunt.loadNpmTasks('assemble-less');
 
   grunt.registerTask('server', ['connect','watch']);
   grunt.registerTask('run', ['clean','assemble','server']);
