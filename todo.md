@@ -1,3 +1,5 @@
 - [ ] Blog-ish _posts
 - [ ] Add img minification
 - [ ] ghpages deploy
+- [ ] tests?
+- [ ] Acknowledge yawa
