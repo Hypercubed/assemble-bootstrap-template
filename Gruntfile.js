@@ -181,6 +181,8 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.registerTask('deploy', ['build','gh-pages']);
+
   grunt.registerTask('default', ['server']);
 
 };
