@@ -139,7 +139,7 @@ module.exports = function (grunt) {
           '<%= build.out %>/fonts/{,*/}*.*'
         ]
       }
-    }//,
+    },
     //less: {
     //  styles: {
     //    files: {
@@ -152,13 +152,13 @@ module.exports = function (grunt) {
     //    html: 'out/index.html' // point to your HTML file.
     //  }
     //},
-    //'gh-pages': {
-    //  options: {
-    //    base: 'out',
-    //    branch: 'gh-pages'
-    //  },
-    //  src: ['**/*']
-    //}
+    'gh-pages': {
+      options: {
+        base: 'out',
+        branch: 'gh-pages'
+      },
+      src: ['**/*']
+    }
   });
 
   grunt.loadNpmTasks('assemble');
