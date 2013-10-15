@@ -1,0 +1,144 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Readme | assemble-bootstrap</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<!-- build:css(src) styles/vendor.css -->
+		<link rel="stylesheet" href="_bower_components/bootstrap/dist/css/bootstrap.css">
+		<!-- endbuild -->
+		<!-- build:css(src) styles/main.css -->
+		<link rel="stylesheet" href="styles/main.css">
+		<!-- endbuild -->
+		<!-- build:js(src) scripts/vendor/modernizr.js -->
+		<script src="_bower_components/modernizr/modernizr.js"></script>
+		<!-- endbuild -->
+	</head>
+	<body>
+		<!--[if lt IE 10]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+		<!-- Menu -->
+		
+<!-- Navbar component
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand " href="./">assemble-bootstrap</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+            
+              <li typeof="sioc:Page" about="document.url" class="active" >
+                <a href="readme.html" property="dc:title">Readme</a>
+              </li>
+            
+        
+      </ul>
+    </div><!--/.navbar-collapse -->
+  </div>
+</div>
+
+
+
+
+		<!-- Content -->
+		
+
+<div class="container">
+	<article id="page" class="page">
+		<div class="page-header">
+	  		<h1>Readme</h1>
+		</div>
+		<div class="page-content">
+			
+<h1>assemble-bootstrap-template</h1>
+<p>My template for building a static <a href="http://getbootstrap.com/">bootstrap 3.0</a> site using <a href="http://gruntjs.com/">grunt</a> and various grunt tasks, including <a href="http://assemble.io/">assemble</a>.</p>
+<h1>Installation</h1>
+<pre><code>git clone https://github.com/Hypercubed/assemble-bootstrap-template.git
+cd assemble-bootstrap-template
+npm install
+bower install</code></pre>
+<h1>Structure</h1>
+<p>There are many tools, templates, and generators for building static (and non-static) websites.  Each one has their own paradigm for organizing source files.  For example [DocPad] has a <code>src/</code> directory containing (at least) thee sub-directories for documents (files to be rendered), files (files not to be rendered), and layouts.  Jekyll on the other-hand has a single source directory containing source files and special sub-directories for layouts, includes, posts, etc.  Each tool has their purpose for using such a layout and their implementation can be very strict or loose depending on the tool.  Assemble on the other-hand imposes not such restrictions.  You are free to organize your source files as you choose.  Using grunt, assemble, and various other grunt tasks your static site is generated from the source files as you see fit.</p>
+<p>This template is my way of doing this.  I have organized the source into a single <code>src/</code> directory.  This source directory can contains html files, css files, handelbars template files, image files, etc that are processed and transformed into the <code>out/</code> directory using a series of grunt tasks (see below).  For the most part the structure of the <code>out/</code> directory will mirror the <code>src/</code>.  Each file in the <code>src</code> directory (with some exceptions) will result in an single a file in the <code>out/</code> directory.  Notable exceptions are the <code>_</code> directories that are not copied or renderd to the <code>out/</code> but instead used during the rendering process by the build tasks.  Each grunt task is fully configurable in <code>Gruntfile.js</code> so you can change the structure to fit your needs.</p>
+<p>Here is the structure I chose when to use:</p>
+<pre><code>/root
++- package.json
++- bower.json
++- Gruntfile.js
++- src/
+   +- _data/
+   +- _layouts
+   +- _partials
+   +- bower_components
+   +- {other source files...}</code></pre>
+<h1>Grunt tasks</h1>
+<pre><code>         clean  Clean files and folders from out/.
+      assemble  Compile template files with specified engines.
+          copy  Copy src/ files, not processed by other tasks, to out/.
+ useminPrepare  Uses HTML markup to determine options for concatenation  and minification tasks.
+        concat  Concatenate js and css files.
+        cssmin  Minify CSS files.
+        uglify  Minify files with UglifyJS.
+           rev  Prefix static asset file names with a content hash for cache busting.
+        usemin  Replaces references to non-minified scripts / stylesheets.
+       htmlmin  Minify HTML.
+        server  Run a test server using src/ and out/ and watch for changes.
+           run  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;server&quot; tasks.
+         build  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;copy&quot;, &quot;useminPrepare&quot;,
+                &quot;concat&quot;, &quot;cssmin&quot;, &quot;uglify&quot;, &quot;rev&quot;, &quot;usemin&quot;, &quot;htmlmin&quot; tasks.
+       default  Alias for &quot;server&quot; task.</code></pre>
+
+
+		</div>
+	</article>
+</div>
+
+
+		<footer>
+	<div class="container">
+		<p class="pull-left">&copy; J. Harshbarger - 2013 </p>
+		<p class="pull-right">
+			This website was last updated at 10/15/2013
+		</p>
+	</div>
+</footer>
+
+
+		<!-- build:js(src) scripts/vendor.js -->
+		<script src="_bower_components/jquery/jquery.js"></script>
+		<!-- endbuild -->
+
+		<!-- Google Analytics -->
+		<script>
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='//www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-XXXXX-X');ga('send','pageview');
+		</script>
+
+    <!-- build:js(src) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>
