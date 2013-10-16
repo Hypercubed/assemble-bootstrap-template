@@ -8,7 +8,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     build: {
       src: 'src',
-      out: 'out'
+      out: 'out',
+      dist: 'dist'
     },
     watch: {
       src: {
@@ -67,6 +68,14 @@ module.exports = function (grunt) {
           '.htaccess'
         ],
         dest: '<%= build.out %>/'
+      },
+      fonts: {
+        expand: true,
+        cwd: '<%= build.src %>/_bower_components/bootstrap/fonts/',
+        src: [
+          '**',
+        ],
+        dest: '<%= build.out %>/fonts/'
       }
     },
     useminPrepare: {
@@ -103,16 +112,16 @@ module.exports = function (grunt) {
         }]
       }
     },
-    //imagemin: {
-    //  dist: {
-    //    files: [{
-    //      expand: true,
-    //      cwd: '<%%= build.src %>/images',
-    //      src: '**/*.{png,jpg,jpeg,gif,webp}',
-    //      dest: '<%%= build.out %>/images'
-    //    }]
-    //  }
-    //},
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= build.src %>/images',
+          src: '**/*.{png,jpg,jpeg,gif,webp}',
+          dest: '<%= build.out %>/images'
+        }]
+      }
+    },
     //svgmin: {
     //  dist: {
     //    files: [{
@@ -134,9 +143,7 @@ module.exports = function (grunt) {
       files: {
         src: [
           '<%= build.out %>/scripts/{,*/}*.js',
-          '<%= build.out %>/styles/{,*/}*.css',
-          '<%= build.out %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-          '<%= build.out %>/fonts/{,*/}*.*'
+          '<%= build.out %>/styles/{,*/}*.css'
         ]
       }
     },
@@ -158,10 +165,23 @@ module.exports = function (grunt) {
         branch: 'gh-pages'
       },
       src: ['**/*']
+    },
+    rsync: {
+      options: {
+        args: ["--verbose","--delete"],
+        recursive: true
+      },
+      dist: {
+          options: {
+            src: "<%= build.out %>/",
+            dest: "<%= build.dist %>"
+          }
+      }
     }
   });
 
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-rsync');
   //grunt.loadNpmTasks('assemble-less');
 
   grunt.registerTask('server', ['connect','watch']);
@@ -172,6 +192,7 @@ module.exports = function (grunt) {
     'clean',
     'assemble',
     'copy',
+    'imagemin',
     'useminPrepare',
     'concat',
     'cssmin',
@@ -181,8 +202,10 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('deploy', ['build','gh-pages']);
+  grunt.registerTask('deploy:rsync', ['build','rsync']);
+  grunt.registerTask('deploy:gh-pages', ['build','gh-pages']);
 
-  grunt.registerTask('default', ['server']);
+  grunt.registerTask('deploy', ['deploy:gh-pages']);
+  grunt.registerTask('default', ['run']);
 
 };

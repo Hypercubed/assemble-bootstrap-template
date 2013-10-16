@@ -1,7 +1,8 @@
 {
   "name": "assemble-bootstrap",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
@@ -27,8 +28,7 @@
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
     "assemble": "~0.4.4",
-    "grunt-bless": "~0.1.1",
-    "assemble-less": "~0.5.3",
+    "grunt-rsync": "~0.2.1",
     "grunt-gh-pages": "~0.8.0"
   },
   "engines": {
