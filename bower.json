@@ -4,7 +4,9 @@
   "dependencies": {
     "modernizr": "~2.6.2",
     "bootstrap": "~3.0.0",
-    "jquery": "~2.0.3"
+    "jquery": "~2.0.3",
+    "angular": "~1.0.8",
+    "angular-bootstrap": "~0.6.0"
   },
   "devDependencies": {}
 }

@@ -15,6 +15,10 @@ title: <%= site.title %>
   </div>
 </div>
 
+<div class="container" ng-init="alerts = [{ type: 'success', msg: 'Well done! You now have angularjs and angular-bootstrap.' }]">
+  <alert ng-repeat="alert in alerts" type="alert.type" close="alerts.splice($index, 1)">\{{alert.msg}}</alert>
+</div>
+
 <div class="container">
   <div class="page-content">
     <div class="row">
@@ -30,12 +34,9 @@ title: <%= site.title %>
 - HTML generated from [handelbars](http://handlebarsjs.com/) templates using [Assemble](http://assemble.io/).
 - JS and CSS concatenation and minifications using [grunt-usemin](https://github.com/yeoman/grunt-usemin)
 - Front-end components managed using [Bower](http://bower.io/).
-- Base template using <a href="http://getbootstrap.com/">Bootstrap 3.0</a>
+- Base template using [Bootstrap 3.0](http://getbootstrap.com/), [Angularjs](http://angularjs.org/), and [angular-ui-bootstrap](angular-ui.github.io/bootstrap/)
 {{/markdown}}
 
     </div>
   </div>
 </div>
-
-
-

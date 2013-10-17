@@ -1,6 +1,5 @@
-node_modules
-out
+node_modules/
 src/_bower_components
 .grunt
 *.bak
-dist
+dist/
