@@ -22,6 +22,7 @@ This template is my way of doing this.  I have organized the source into a singl
 
 Here is the structure I chose when to use:
 
+```
 	  /root
 	  +- package.json
 	  +- bower.json
@@ -32,6 +33,7 @@ Here is the structure I chose when to use:
 	     +- _partials
 	     +- _bower_components
 	     +- {other source files...}
+```
 
 # Grunt
 
@@ -39,6 +41,7 @@ Grunt is a JavaScript based task runner.  In this template Grunt is used for man
 
 Grunt tasks:
 
+```
         clean  Clean files and folders from out/.  
              assemble  Compile template files with specified engines.
                  copy  Copy src/ files, not processed by other tasks, to out/.
@@ -62,23 +65,28 @@ Grunt tasks:
 
                deploy  Alias for "deploy:gh-pages" task.
             default  Alias for "run" task.
+```
 
 # Bower
 
 Bower is a package manager for front end components.  If you are not familiar with Bower see [bower.io](http://bower.io/).  The default template in the `src` directory is designed to use Bootstrap 3.0, angularjs, and angular-bootstrap.  This is easily modified.  The default bower.json file included in this repository installs:
 
+```json
     "modernizr": "~2.6.2",
     "bootstrap": "~3.0.0",
     "jquery": "~2.0.3",
     "angular": "~1.0.8",
     "angular-bootstrap": "~0.6.0"
+```
 
 The bower components are invoked within `src/_layouts/default.hbs`.  You will notice that bower components are wrapped in a usemin block:
 
+```html
     <!-- build:js(src) scripts/vendor.js -->
     <script src="_bower_components/jquery/jquery.js"></script>
     <script src="_bower_components/angular/angular.js"></script>
     <script src="_bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbuild -->
+```
 
 This means when the grunt `build` task(s) are invoked these scripts will be concatenated into a single `vendor.js` file in the out directory.  In this way the entire contents of the `_bower_components` directory does not need to be copied to the `out/` directory.  One notable exception is the bootstrap fonts that are copied in the grunt `copy` task.

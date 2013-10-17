@@ -1,5 +1,6 @@
 - [ ] Blog-ish _posts
-- [ ] Add img minification
-- [ ] ghpages deploy
+- [x] Add img minification
+- [x] ghpages deploy
 - [ ] tests?
 - [ ] Acknowledge yawa
+- [ ] useminPrepare on other html files?

@@ -40,17 +40,20 @@ module.exports = function (grunt) {
     },
     assemble: {
       options: {
-        flatten: true,
+        flatten: false,
         partials: '<%= build.src %>/_partials/*.hbs',
         layoutdir: '<%= build.src %>/_layouts',
-        data: ['<%= build.src %>/_data/*.{json,yml}', 'package.json']
+        data: ['<%= build.src %>/_data/*.{json,yml}', 'package.json'],
+        assets: '<%= build.out %>/'
       },
       pages: {
         options: {
-          layout: 'page.hbs'
+          layout: 'page.hbs',
         },
-        src: ['<%= build.src %>/*.hbs'],
-        dest: '<%= build.out %>'
+        expand: true,
+        cwd: '<%= build.src %>/',
+        src: ['**/*.hbs','!_*/**'],
+        dest: '<%= build.out %>/'
       }
     },
     clean: {
@@ -88,8 +91,8 @@ module.exports = function (grunt) {
       options: {
         dirs: ['<%= build.out %>']
       },
-      html: ['<%= build.out %>/{,*/}*.html'],
-      css: ['<%= build.out %>/styles/{,*/}*.css']
+      html: ['<%= build.out %>/**/*.html'],
+      css: ['<%= build.out %>/styles/**/*.css']
     },
     htmlmin: {
       dist: {
@@ -107,7 +110,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= build.out %>',
-          src: '*.html',
+          src: '**/*.html',
           dest: '<%= build.out %>'
         }]
       }
@@ -186,6 +189,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', ['connect','watch']);
   grunt.registerTask('run', ['clean','assemble','server']);
+  grunt.registerTask('run:build', ['build','server']);
   //grunt.registerTask('build', ['clean','assemble','copy']);
 
   grunt.registerTask('build', [

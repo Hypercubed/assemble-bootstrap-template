@@ -12,14 +12,14 @@
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-		<!-- build:css(src) styles/vendor.css -->
-		<link rel="stylesheet" href="_bower_components/bootstrap/dist/css/bootstrap.css">
+		<!-- build:css(src) {{assets}}styles/vendor.css -->
+		<link rel="stylesheet" href="{{assets}}_bower_components/bootstrap/dist/css/bootstrap.css">
 		<!-- endbuild -->
-		<!-- build:css(src) styles/main.css -->
-		<link rel="stylesheet" href="styles/main.css">
+		<!-- build:css(src) {{assets}}styles/main.css -->
+		<link rel="stylesheet" href="{{assets}}styles/main.css">
 		<!-- endbuild -->
-		<!-- build:js(src) scripts/vendor/modernizr.js -->
-		<script src="_bower_components/modernizr/modernizr.js"></script>
+		<!-- build:js(src) {{assets}}scripts/vendor/modernizr.js -->
+		<script src="{{assets}}_bower_components/modernizr/modernizr.js"></script>
 		<!-- endbuild -->
 	</head>
 	<body>
@@ -34,10 +34,10 @@
 		{{> body }}
 		{{> footer }}
 
-		<!-- build:js(src) scripts/vendor.js -->
-		<script src="_bower_components/jquery/jquery.js"></script>
-    <script src="_bower_components/angular/angular.js"></script>
-    <script src="_bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<!-- build:js(src) {{assets}}scripts/vendor.js -->
+		<script src="{{assets}}_bower_components/jquery/jquery.js"></script>
+    <script src="{{assets}}_bower_components/angular/angular.js"></script>
+    <script src="{{assets}}_bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 		<!-- endbuild -->
 
 		<!-- Google Analytics -->
@@ -50,8 +50,8 @@
 			ga('create','{{site.ga}}');ga('send','pageview');
 		</script>
 
-    <!-- build:js(src) scripts/main.js -->
-    <script src="scripts/main.js"></script>
+    <!-- build:js(src) {{assets}}scripts/main.js -->
+    <script src="{{assets}}scripts/main.js"></script>
     <!-- endbuild -->
 
 </body>
