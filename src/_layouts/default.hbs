@@ -13,14 +13,19 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 		<!-- build:css(src) {{assets}}styles/vendor.css -->
-		<link rel="stylesheet" href="{{assets}}_bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- bower:css -->
+    <link href="{{assets}}_bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- endbower -->
 		<!-- endbuild -->
+
 		<!-- build:css(src) {{assets}}styles/main.css -->
 		<link rel="stylesheet" href="{{assets}}styles/main.css">
 		<!-- endbuild -->
+
 		<!-- build:js(src) {{assets}}scripts/vendor/modernizr.js -->
 		<script src="{{assets}}_bower_components/modernizr/modernizr.js"></script>
 		<!-- endbuild -->
+
 	</head>
 	<body>
 		<!--[if lt IE 10]>
@@ -34,11 +39,14 @@
 		{{> body }}
 		{{> footer }}
 
-		<!-- build:js(src) {{assets}}scripts/vendor.js -->
-		<script src="{{assets}}_bower_components/jquery/jquery.js"></script>
-    <script src="{{assets}}_bower_components/angular/angular.js"></script>
-    <script src="{{assets}}_bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-		<!-- endbuild -->
+    <!-- build:js(src) {{assets}}scripts/vendor.js -->
+    <!-- Note: remove modernizer and bootstrap -->
+    <!-- bower:js -->
+    <script type="text/javascript" src="{{assets}}_bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="{{assets}}_bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="{{assets}}_bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
 		<!-- Google Analytics -->
 		<script>

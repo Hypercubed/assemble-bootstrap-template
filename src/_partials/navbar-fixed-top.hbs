@@ -18,7 +18,7 @@ component: navbar
         {{#each tags}}{{#is tag 'page'}}
             {{#each pages}}
               <li typeof="sioc:Page" about="document.url" class="{{#is ../../../page.dest dest}}active{{/is}}" >
-                <a href="{{relative ../../../page.dest dest}}" property="dc:title">{{data.title}}</a>
+                <a href="{{relative ../../../page.dest this.dest}}" property="dc:title">{{data.title}}</a>
               </li>
             {{/each}}
         {{/is}}{{/each}}

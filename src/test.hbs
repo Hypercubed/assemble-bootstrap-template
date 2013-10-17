@@ -1,0 +1,24 @@
+---
+title: "Test"
+tags:
+- page
+---
+{{md "Todo.md"}}
+
+TEST
+{{page.dest}}
+
+pages:
+  {{#each pages}}
+    <li>{{dest}}</li>
+  {{/each}}
+
+tags:
+{{#each tags}}
+  <h1>{{tag}}</h1>
+  <ul>
+    {{#each pages}}
+      <li>{{dest}}</li>
+    {{/each}}
+  </ul>
+{{/each}}

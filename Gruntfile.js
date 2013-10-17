@@ -40,6 +40,10 @@ module.exports = function (grunt) {
     },
     assemble: {
       options: {
+       // plugins: ['permalinks'],
+       // permalinks: {
+        //  preset: 'pretty'
+       // },
         flatten: false,
         partials: '<%= build.src %>/_partials/*.hbs',
         layoutdir: '<%= build.src %>/_layouts',
@@ -157,14 +161,17 @@ module.exports = function (grunt) {
     //    }
     //  }
     //},
-    //'bower-install': {
-    //  target: {
-    //    html: 'out/index.html' // point to your HTML file.
-    //  }
-    //},
+    'bower-install': {
+      target: {
+        ignorePath: '<%= build.src %>/',
+        html: '<%= build.src %>/_layouts/default.hbs',
+        jsPattern: '<script type="text/javascript" src="\{\{assets\}\}{{filePath}}"></script>',
+        cssPattern: '<link href="\{\{assets\}\}{{filePath}}" rel="stylesheet">',
+      }
+    },
     'gh-pages': {
       options: {
-        base: 'out',
+        base: '<%= build.out %>',
         branch: 'gh-pages'
       },
       src: ['**/*']
