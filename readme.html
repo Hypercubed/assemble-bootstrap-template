@@ -1,33 +1,46 @@
 <!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" ng-app="mainApp"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Readme | assemble-bootstrap</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel="stylesheet" href="styles/300c7b20.vendor.css"><link rel="stylesheet" href="styles/52ba74e5.main.css"><script src="scripts/vendor/f7f27360.modernizr.js"></script><body><!--[if lt IE 10]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]--><!-- Menu --><!-- Navbar component
-================================================== --><div class="navbar navbar-inverse navbar-fixed-top"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="./">assemble-bootstrap</a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li typeof="sioc:Page" about="document.url" class="active"><a href="readme.html" property="dc:title">Readme</a></li></ul></div><!--/.navbar-collapse --></div></div><!-- Content --><div class="container"><article id="page" class="page"><div class="page-header"><h1>Readme</h1></div><div class="page-content"><h1>assemble-bootstrap-template</h1><p>My template for building a static <a href="http://getbootstrap.com/">bootstrap 3.0</a> site using <a href="http://gruntjs.com/">grunt</a> and various grunt tasks, including <a href="http://assemble.io/">assemble</a>.</p><h1>Installation</h1><pre><code>git clone https://github.com/Hypercubed/assemble-bootstrap-template.git
-cd assemble-bootstrap-template
-npm install
-bower install</code></pre><h1>Structure</h1><p>There are many tools, templates, and generators for building static (and non-static) websites. Each one has their own paradigm for organizing source files. For example <a href="http://docpad.org/">DocPad</a> has a <code>src/</code> directory containing (at least) three sub-directories; documents (files to be rendered), files (files not to be rendered), and layouts. Jekyll on the other-hand has a single source directory containing source files and special sub-directories for layouts, includes, posts, etc. Each tool has their purpose for using such a layout and their implementation can be very strict or loose depending on the tool. Assemble on the other-hand imposes not such restrictions. You are free to organize your source files as you choose. Using grunt, assemble, and various other grunt tasks your static site is generated from the source files as you see fit. It&#39;s as complex or as simple as you need it to be.</p><p>This template is my way of doing this. I have organized the source into a single <code>src/</code> directory. This source directory contains html files, css files, handelbars template files, image files, etc that are processed and transformed into the <code>out/</code> directory using a series of grunt tasks (see below). For the most part the structure of the <code>out/</code> directory will mirror the <code>src/</code>. Each file in the <code>src</code> directory (with several exceptions) will result in an single a file in the <code>out/</code> directory. Notable exceptions are the <code>_</code> directories that are not copied or rendered to the <code>out/</code> but instead used during the build process by the build tasks. Each grunt task is fully configurable in the <code>Gruntfile.js</code> so you can change the structure to fit your needs.</p><p>Here is the structure I chose when to use:</p><pre><code>/root
-+- package.json
-+- bower.json
-+- Gruntfile.js
-+- src/
-   +- _data/
-   +- _layouts
-   +- _partials
-   +- _bower_components
-   +- {other source files...}</code></pre><h1>Grunt tasks</h1><pre><code>         clean  Clean files and folders from out/.
-      assemble  Compile template files with specified engines.
-          copy  Copy src/ files, not processed by other tasks, to out/.
- useminPrepare  Uses HTML markup to determine options for concatenation  and minification tasks.
-        concat  Concatenate js and css files.
-        cssmin  Minify CSS files.
-        uglify  Minify files with UglifyJS.
-           rev  Prefix static asset file names with a content hash for cache busting.
-        usemin  Replaces references to non-minified scripts / stylesheets.
-       htmlmin  Minify HTML.
-        server  Run a test server using src/ and out/ and watch for changes.
-           run  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;server&quot; tasks.
-         build  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;copy&quot;, &quot;useminPrepare&quot;,
-                &quot;concat&quot;, &quot;cssmin&quot;, &quot;uglify&quot;, &quot;rev&quot;, &quot;usemin&quot;, &quot;htmlmin&quot; tasks.
-       default  Alias for &quot;server&quot; task.</code></pre></div></article></div><footer><div class="container"><p class="pull-left">&copy; J. Harshbarger - 2013</p><p class="pull-right">This website was last updated at 10/17/2013</p></div></footer><script src="scripts/96327df8.vendor.js"></script><!-- Google Analytics --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+================================================== --><div class="navbar navbar-inverse navbar-fixed-top"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="./">assemble-bootstrap</a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li typeof="sioc:Page" about="document.url" class="active"><a href="readme.html" property="dc:title">Readme</a></li></ul></div><!--/.navbar-collapse --></div></div><!-- Content --><div class="container"><article id="page" class="page"><div class="page-header"><h1>Readme</h1></div><div class="page-content"><h1>assemble-bootstrap-template</h1><p>My template for building a static site using <a href="http://gruntjs.com/">grunt</a> and various grunt tasks, including <a href="http://assemble.io/">assemble</a>.</p><h1>Installation</h1><p>git clone <a href="https://github.com/Hypercubed/assemble-bootstrap-template.git">https://github.com/Hypercubed/assemble-bootstrap-template.git</a> cd assemble-bootstrap-template npm install bower install</p><h1>Background</h1><p>If you are not familiar it would be worthwhile to read up on <a href="https://github.com/gruntjs/grunt/wiki/Getting-started">Grunt</a>, <a href="http://bower.io/">bower</a>, and <a href="https://github.com/yeoman/grunt-usemin">grunt-usemin</a>, and <a href="http://assemble.io/">assemble</a>.</p><h1>Structure</h1><p>There are many tools, templates, and generators for building static (and non-static) websites. Each one has their own paradigm for organizing source files. For example <a href="http://docpad.org/">DocPad</a> has a <code>src/</code> directory containing (at least) three sub-directories; documents (files to be rendered), files (files not to be rendered), and layouts. Jekyll on the other-hand has a single source directory containing source files and special sub-directories for layouts, includes, posts, etc. Each tool has their purpose for using such a layout and their implementation can be very strict or loose depending on the tool. Assemble on the other-hand imposes not such restrictions. You are free to organize your source files as you choose. Using grunt, assemble, and various other grunt tasks your static site is generated from the source files as you see fit. It&#39;s as complex or as simple as you need it to be.</p><p>This template is my way of doing this. I have organized the source into a single <code>src/</code> directory. This source directory contains html files, css files, handelbars template files, image files, etc that are processed and transformed into the <code>out/</code> directory using a series of grunt tasks (see below). For the most part the structure of the <code>out/</code> directory will mirror the <code>src/</code>. Each file in the <code>src</code> directory (with several exceptions) will result in an single a file in the <code>out/</code> directory. Notable exceptions are the <code>_</code> directories that are not copied or rendered to the <code>out/</code> but instead used during the build process by the build tasks. Each grunt task is fully configurable in the <code>Gruntfile.js</code> so you can change the structure to fit your needs.</p><p>Here is the structure I chose when to use:</p><pre><code>  /root
+  +- package.json
+  +- bower.json
+  +- Gruntfile.js
+  +- src/
+     +- _data/
+     +- _layouts
+     +- _partials
+     +- _bower_components
+     +- {other source files...}</code></pre><h1>Grunt</h1><p>Grunt is a JavaScript based task runner. In this template Grunt is used for many tasks including template, minification, and even deployment. If you are not familiar with Grunt please read the <a href="https://github.com/gruntjs/grunt/wiki/Getting-started">Getting started guide</a>.</p><p>Grunt tasks:</p><pre><code>    clean  Clean files and folders from out/.  
+         assemble  Compile template files with specified engines.
+             copy  Copy src/ files, not processed by other tasks, to out/.
+  useminPrepare  Uses HTML markup to determine options for concatenation  and minification tasks.
+         concat  Concatenate js and css files.
+         cssmin  Minify CSS files.
+         uglify  Minify files with UglifyJS.
+              rev  Prefix static asset file names with a content hash for cache busting.
+           usemin  Replaces references to non-minified scripts / stylesheets.
+          htmlmin  Minify HTML.
+         imagemin  Minify PNG and JPEG images
+
+            rsync  Performs rsync tasks.
+         gh-pages  Publish to gh-pages.
+     deploy:rsync  Alias for &quot;build&quot;, &quot;rsync&quot; tasks.
+  deploy:gh-pages  Alias for &quot;build&quot;, &quot;gh-pages&quot; tasks.
+
+         server  Run a test server using src/ and out/ and watch for changes.
+            run  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;server&quot; tasks.
+          build  Alias for &quot;clean&quot;, &quot;assemble&quot;, &quot;copy&quot;, &quot;imagemin&quot;, &quot;useminPrepare&quot;, &quot;concat&quot;, &quot;cssmin&quot;, &quot;uglify&quot;, &quot;rev&quot;, &quot;usemin&quot;, &quot;htmlmin&quot; tasks.
+
+           deploy  Alias for &quot;deploy:gh-pages&quot; task.
+        default  Alias for &quot;run&quot; task.</code></pre><h1>Bower</h1><p>Bower is a package manager for front end components. If you are not familiar with Bower see <a href="http://bower.io/">bower.io</a>. The default template in the <code>src</code> directory is designed to use Bootstrap 3.0, angularjs, and angular-bootstrap. This is easily modified. The default bower.json file included in this repository installs:</p><pre><code>&quot;modernizr&quot;: &quot;~2.6.2&quot;,
+&quot;bootstrap&quot;: &quot;~3.0.0&quot;,
+&quot;jquery&quot;: &quot;~2.0.3&quot;,
+&quot;angular&quot;: &quot;~1.0.8&quot;,
+&quot;angular-bootstrap&quot;: &quot;~0.6.0&quot;</code></pre><p>The bower components are invoked within <code>src/_layouts/default.hbs</code>. You will notice that bower components are wrapped in a usemin block:</p><pre><code>&lt;!-- build:js(src) scripts/vendor.js --&gt;
+&lt;script src=&quot;_bower_components/jquery/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;_bower_components/angular/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;_bower_components/angular-bootstrap/ui-bootstrap-tpls.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;</code></pre><p>This means when the grunt <code>build</code> task(s) are invoked these scripts will be concatenated into a single <code>vendor.js</code> file in the out directory. In this way the entire contents of the <code>_bower_components</code> directory does not need to be copied to the <code>out/</code> directory. One notable exception is the bootstrap fonts that are copied in the grunt <code>copy</code> task.</p></div></article></div><footer><div class="container"><p class="pull-left">&copy; J. Harshbarger - 2013</p><p class="pull-right">This website was last updated at 10/17/2013</p></div></footer><script src="scripts/96327df8.vendor.js"></script><!-- Google Analytics --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
 			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
 			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
 			e.src='//www.google-analytics.com/analytics.js';
