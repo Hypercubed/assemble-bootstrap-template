@@ -5,10 +5,12 @@ My template for building a static site using [grunt](http://gruntjs.com/) and va
 
 # Installation
 
-  git clone https://github.com/Hypercubed/assemble-bootstrap-template.git
-  cd assemble-bootstrap-template
-  npm install
-  bower install
+```bash
+	git clone https://github.com/Hypercubed/assemble-bootstrap-template.git
+	cd assemble-bootstrap-template
+	npm install
+	bower install
+```
 
 # Background
 
