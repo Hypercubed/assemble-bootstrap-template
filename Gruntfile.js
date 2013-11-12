@@ -139,16 +139,18 @@ module.exports = function (grunt) {
         }]
       }
     },
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= build.src %>/images',
-          src: '**/*.{png,jpg,jpeg,gif,webp}',
-          dest: '<%= build.out %>/images'
-        }]
-      }
-    },
+
+    //imagemin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= build.src %>/images',
+    //      src: '**/*.{png,jpg,jpeg,gif,webp}',
+    //      dest: '<%= build.out %>/images'
+    //    }]
+    //  }
+    //},
+
     //svgmin: {
     //  dist: {
     //    files: [{
@@ -210,11 +212,19 @@ module.exports = function (grunt) {
             dest: "<%= build.dist %>"
           }
       }
+    },
+
+    mocha: {
+      all: {
+        options: {
+          run: true,
+          urls: ['http://<%= connect.devserver.options.hostname %>:<%= connect.devserver.options.port %>/test.html'],
+          globals: ['$']
+        }
+      }
     }
 
   });
-
-
 
   grunt.registerTask('install', ['shell:npm','shell:bower']);
 
@@ -222,7 +232,7 @@ module.exports = function (grunt) {
     'clean',
     'assemble',
     'copy',
-    'imagemin',
+    //'imagemin',
     'useminPrepare',
     'concat',
     'cssmin',
