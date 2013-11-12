@@ -8,12 +8,17 @@
 <body>
     <div id="mocha"></div>
     <script src="lib/mocha/mocha.js"></script>
-    <script>mocha.setup('bdd')</script>
+    <script>mocha.setup({ui: 'bdd', globals: [ 'LiveReload' ]})</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect</script>
 
     <!-- include source files here... -->
+    <script src="../_bower_components/jquery/jquery.js"></script>
+    <script src="../_bower_components/angular/angular.js"></script>
+
+    <!-- MyApp files -->
+    <script src="../scripts/main.js"></script>
 
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>
@@ -21,3 +26,4 @@
     <script>mocha.run()</script>
 </body>
 </html>
+
